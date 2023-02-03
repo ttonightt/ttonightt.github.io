@@ -1,0 +1,327 @@
+aside {
+    position: fixed;
+    z-index: 30;
+    top: 0px;
+    left: -400px;
+    bottom: 0px;
+    width: 400px;
+    height: 100vh;
+    transition: 0.3s ease-in;
+    background-color: #000000;
+}
+
+aside *::selection {
+    background-color: #ffffff;
+    color: #000000;
+    text-shadow: none;
+}
+
+#console i::selection {
+    color: #754610;
+}
+
+aside.open {
+    left: 0px;
+}
+
+aside .tab-btns {
+    position: absolute;
+    top: 60px;
+    right: -60px;
+    width: 60px;
+    height: fit-content;
+    cursor: pointer;
+}
+
+aside .tab-btns > div {
+    width: 20px;
+    height: 20px;
+    padding: 20px;
+    background-color: #000000;
+    float: left;
+}
+
+aside .tab-btns > div span {
+    width: 100%;
+    height: 100%;
+    writing-mode: vertical-lr;
+    font-family: "DOABM";
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 20px;
+    color: #ffffff;
+    display: block;
+}
+
+aside .tab-btns .close-btn span {
+    writing-mode: unset;
+    text-align: center;
+    letter-spacing: -5px;
+}
+
+aside .tab-btns > div:hover span {
+    background-image: linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(-45deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ffffff 75%), linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+    background-size: 4px 4px;
+    background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+aside .tabs {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+aside .tabs .tab {
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    float: left;
+}
+
+aside .tabs .tab.active {
+    height: 100%;
+}
+
+aside h3 {
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 14px;
+    height: 14px;
+    margin: 12px 0px 11px 12px;
+    color: #ffffff;
+    display: block;
+}
+
+aside > .content {
+    height: calc(100% - 37px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-items: stretch;
+    flex-wrap: nowrap;
+}
+
+aside #streams {
+    display: flex;
+    margin: 0px 11px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+aside #streams div {
+    height: 14px;
+    padding: 12px;
+    border: 1px solid #ffffff;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: monospace;
+    color: #b3b3b3;
+    /* flex-basis: 70px; */
+    flex-basis: 80px;
+}
+
+aside #console {
+    padding: 8px;
+    border: 1px solid #ffffff;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    font-size: 12px;
+    font-family: monospace;
+    margin: 11px;
+    color: #b3b3b3;
+    flex: 1 1 0;
+}
+
+aside #console::-webkit-scrollbar {
+    width: 10px;
+}
+   
+aside #console::-webkit-scrollbar-track {
+    width: 10px;
+    background-color: #000000;
+}
+   
+aside #console::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    box-shadow: inset 0px 0px 0px 3px #000000;
+}
+
+aside #console i {
+    color: #6f367e;
+}
+
+#color-picker {
+    width: calc(100% - 44px);
+    height: fit-content;
+    margin: 11px;
+    border: 1px solid #ffffff;
+    float: left;
+    padding: 10px;
+}
+
+#color-picker .canvas-wrap-xy {
+    position: relative;
+    background-color: #0e0e0e;
+    width: calc(100% - 40px);
+    height: calc(100% - 58px);
+    float: left;
+}
+
+#color-picker .canvas-wrap-z {
+    position: relative;
+    background-color: #0e0e0e;
+    height: calc(100% - 58px);
+    width: 30px;
+    margin-left: 10px;
+    float: left;
+}
+
+#color-picker canvas {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+#color-picker nav#cp-nav-xy {
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #ffffff;
+    box-shadow: 0px 0px 0px 2px #000000;
+    border-radius: 100%;
+}
+
+#color-picker nav#cp-nav-z {
+    position: absolute;
+    z-index: 1;
+    top: -4px;
+    left: -2px;
+    width: 30px;
+    height: 4px;
+    border: 2px solid #ffffff;
+    box-shadow: 0px 0px 0px 2px #000000;
+}
+
+#color-picker ul#cp-sets {
+    width: calc(100% - 24px);
+    height: 24px;
+    padding: 11px;
+    margin: 10px 0px 0px 0px;
+    border: 1px solid #ffffff;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    float: left;
+}
+
+#color-picker ul#cp-sets::-webkit-scrollbar {
+    height: 10px;
+}
+   
+#color-picker ul#cp-sets::-webkit-scrollbar-track {
+    height: 10px;
+    background-color: #000000;
+}
+   
+#color-picker ul#cp-sets::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    box-shadow: inset 0px 0px 0px 3px #000000;
+}
+
+#color-picker ul#cp-sets li {
+    width: max-content;
+    height: 100%;
+    color: #b3b3b3;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: monospace;
+    list-style: none;
+    white-space: nowrap;
+    margin: 0px 12px;
+    cursor: pointer;
+}
+
+#color-picker ul#cp-sets li:hover {
+    color: #a535bb;
+}
+
+@media (max-width: 500px) {
+    aside {
+        width: 100vw;
+        height: calc(46vh - 20px);
+        top: unset;
+        left: 0px;
+        right: 0px;
+        bottom: calc(-46vh + 20px);
+    }
+
+    aside.open {
+        left: inherit;
+        bottom: 0px;
+    }
+
+    aside .tab-btns {
+        top: -40px;
+        left: 0px;
+        width: fit-content;
+        height: 40px;
+    }
+
+    aside .tab-btns > div {
+        width: 14px;
+        height: 14px;
+        padding: 13px;
+    }
+
+    aside .tab-btns > div span {
+        writing-mode: horizontal-tb;
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 14px;
+        color: #ffffff;
+    }
+
+    aside .tab-btns > div.close-btn span {
+        letter-spacing: -3px;
+    }
+
+    aside > span {
+        margin: 10px 0px 9px 10px;
+    }
+
+    aside > .content {
+        height: calc(100% - 33px);
+    }
+
+    aside #streams {
+        margin: 0px 9px;
+        gap: 8px;
+    }
+    
+    aside #streams div {
+        height: 12px;
+        padding: 8px;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    
+    aside #console {
+        padding: 6px 2px 6px 6px;
+        border: 1px solid #ffffff;
+        margin: 9px;
+    }
+
+    aside #color-picker {
+        width: calc(46vh - 60px);
+    }
+}

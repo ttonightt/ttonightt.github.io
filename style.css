@@ -1,0 +1,162 @@
+
+:root {
+    --lightning-main: #fae2e3;
+    --lightning-glow: #492bd1;
+    --reflection: #6a2bdf;
+    --background: #202020;
+}
+
+*::selection {
+    background-color: var(--thunder-glow);
+    color: #ffffff;
+    text-shadow: 3px 3px 0px #000000;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+@font-face {
+    font-family: "DOABM";
+    src: url("doa8bm.ttf");
+}
+
+body {
+    width: 100vw;
+    margin: 0px;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow: hidden;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+#canvas-blur {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.titles {
+    position: absolute;
+    z-index: 10;
+}
+
+h1, h2 {
+    margin: 0px;
+    font-family: "DOABM";
+    font-weight: 100;
+    color: #333333;
+    width: fit-content;
+    float: left;
+    transition: 0.1s ease-in;
+}
+
+h1 {
+    position: relative;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+h1:after {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: -200%;
+    content: "";
+    width: 80%;
+    height: 80%;
+    background-color: var(--reflection);
+    border-radius: 100%;
+    filter: blur(26px);
+    transform: scaleY(33%);
+    opacity: 0;
+    transition: 0.1s ease-in;
+}
+
+/* h1:after {
+    content: "";
+    width: 5px;
+    height: 32px;
+    background-color: #aa99ad73;
+    font-weight: 100;
+    display: inline-block;
+    margin: 0px 0px -2px 4px;
+    animation: 1s step-end 0s forwards normal infinite blinking;
+} */
+
+@keyframes blinking {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 100;
+}
+
+.glowing {
+    color: #ffffff;
+    text-shadow: 0px 0px 20px var(--thunder-glow);
+}
+
+.glowing:after {
+    opacity: 0.5;
+}
+
+header {
+    position: fixed;
+    z-index: 0;
+    top: 0px;
+    right: 0px;
+    color: #aa99ad;
+    font-family: monospace;
+    font-size: 14px;
+    margin: 16px 20px;
+}
+
+#test-canvas {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 300px;
+    height: 300px;
+    z-index: 5;
+    background-color: #100811;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="@ttonightt">
+    <meta name="licence" content="https://github.com/ttonightt/ttonightt.github.io/blob/main/LICENSE">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="DI.css">
+    <title>thunder.js by @ttonightt</title>
+</head>
+<body>
+    <div class="titles">
+        <h1 class="glowable">thunder.js</h1>
+    </div>
+
+    <!-- version !!!!!!!!!!!!!! -->
+    <header>demo-7</header>
+
+    <aside id="DI">
+        <div class="tab-btns">
+            <div class="close-btn"><span>X</span></div>
+            <div class="tab-btn" data-tab="console"><span>DI</span></div>
+            <div class="tab-btn" data-tab="color-picker"><span>CP</span></div>
+        </div>
+        <div class="tabs">
+            <div class="tab active" data-tab="console">
+                <h3>CONSOLE...</h3>
+                <div class="content">
+                    <div id="streams">
+                        <div></div>
+                    </div>
+                    <div id="console"></div>
+                </div>
+            </div>
+            <div class="tab" data-tab="color-picker">
+                <div id="color-picker">
+                    <div class="canvas-wrap-xy">
+                        <canvas id="cp-xy" style="cursor: default;"></canvas>
+                        <nav id="cp-nav-xy"></nav>
+                    </div>
+                    <div class="canvas-wrap-z">
+                        <canvas id="cp-z"></canvas>
+                        <nav id="cp-nav-z"></nav>
+                    </div>
+                    <ul id="cp-sets">
+                        <li>main-color</li>
+                        <li>blur-color</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- <canvas id="test-canvas" width="300px" height="300px"></canvas> -->
+    <canvas id="canvas-blur"></canvas>
+    <canvas id="canvas"></canvas>
+    <!-- <script type="text/javascript" src="jshelper.js"></script> -->
+    <script type="text/javascript" src="DI.js"></script>
+    <script type="text/javascript" src="thunder.js"></script>
+    <script type="text/javascript" src="source.js"></script>
+</body>
+</html>
