@@ -62,20 +62,17 @@ const toTranslate = locale => {
 
 		const obj = JSON.parse(text);
 
-		// const obj = ;
-
 		const trns = document.getElementsByClassName("-trns-");
 
 		if (trns.lenght !== Object.keys(obj).length) {
 			for (let i = 0; i < trns.length; i++) {
-				if (obj[i] !== "\"") {
-					trns[i].insertAdjacentHTML("beforeend", obj[i]);
-				}
+				trns[i].insertAdjacentHTML("beforeend", obj[i]);
 			}
 		}
 
 		setTimeout(() => {
 			loader.classList.add("closed");
+			alert(document.body.clientHeight);
 		}, 500);
 	});
 };
