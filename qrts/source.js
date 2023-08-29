@@ -60,10 +60,9 @@ const toTranslate = locale => {
 		return json.text();
 	}).then(text => {
 
-		const obj = JSON.parse(text, (key, value) => {
-			console.log(key, value);
-			return value;
-		});
+		const obj = JSON.parse(text);
+
+		// const obj = ;
 
 		const trns = document.getElementsByClassName("-trns-");
 
@@ -85,10 +84,26 @@ const subheader = document.getElementById("subheader");
 const subheaderCloser = document.getElementById("subheader-closer");
 const subheaderCaller = document.getElementById("subheader-caller");
 
+const popups = document.getElementsByClassName("popup");
+
 subheaderCaller.onclick = () => {
 	subheader.classList.add("active");
 };
 
 subheaderCloser.onclick = () => {
 	subheader.classList.remove("active");
+};
+
+const sharebox = document.getElementById("sharebox");
+
+sharebox.onclick = () => {
+	toCopy("https://ttonightt.github.io/qrts/ua-indpnc23");
+};
+
+const toCopy = (value) => {
+	navigator.clipboard.writeText('https:\/\/ttonightt.github.io/qrts/ua-indpnc23');
+	popups[0].parentElement.classList.add("visible");
+	setTimeout(() => {
+		popups[0].parentElement.classList.remove("visible");
+	}, 1000);
 };
