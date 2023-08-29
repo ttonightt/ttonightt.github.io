@@ -2,35 +2,68 @@
 
 const loader = document.getElementById("loader");
 
+const translateButtonEN = document.getElementById("translateto-en");
+const translateButtonUA = document.getElementById("translateto-ua");
+
+let locale;
+
+translateButtonEN.onclick = () => {
+	if (locale === "uk-UA") {
+		loader.classList.remove("closed");
+		locale = "en-US";
+		const trns = document.getElementsByClassName("-trns-");
+	
+		for (let i = 0; i < trns.length; i++) {
+			trns[i].textContent = "";
+		}
+	
+		toTranslate("en-US");
+	}
+};
+
+translateButtonUA.onclick = () => {
+	if (locale !== "uk-UA") {
+		loader.classList.remove("closed");
+		locale = "uk-UA";
+		const trns = document.getElementsByClassName("-trns-");
+	
+		for (let i = 0; i < trns.length; i++) {
+			trns[i].textContent = "";
+		}
+	
+		toTranslate("uk-UA");
+	}
+};
+
 fetch("https://api.ipregistry.co/?key=tryout").then(response => {
 	if (response) {
 		return response.json();
 	}
 }).then(json => {
-	toTranslate(json.location.country.languages[0].code + "-" + json.location.country.code);
+	locale = json.location.country.languages[0].code + "-" + json.location.country.code;
+	toTranslate(locale);
 }).catch(() => {
-	toTranslate(Intl.DateTimeFormat().resolvedOptions().locale);
+	locale = Intl.DateTimeFormat().resolvedOptions().locale;
+	toTranslate(locale);
 });
 
 const toTranslate = locale => {
-	// switch (locale) {
-	// 	case "uk-UA":
+	switch (locale) {
+		case "uk-UA":
 			locale = "ua";
-	// 		break;
-	// 	default:
-	// 		locale = "en";
-	// }
+			break;
+		default:
+			locale = "en";
+	}
 
-	fetch("https://raw.githubusercontent.com/ttonightt/ttonightt.github.io/master/" + locale + ".json").then(json => {
+	fetch("https://raw.githubusercontent.com/ttonightt/ttonightt.github.io/main/qrts/" + locale + ".json").then(json => {
 		return json.text();
 	}).then(text => {
-		console.log(text);
+
 		const obj = JSON.parse(text, (key, value) => {
 			console.log(key, value);
 			return value;
 		});
-
-		console.log(obj);
 
 		const trns = document.getElementsByClassName("-trns-");
 
@@ -42,7 +75,9 @@ const toTranslate = locale => {
 			}
 		}
 
-		loader.classList.add("closed");
+		setTimeout(() => {
+			loader.classList.add("closed");
+		}, 500);
 	});
 };
 

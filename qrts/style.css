@@ -1,19 +1,4 @@
 
-@font-face {
-	font-family: "font1";
-	src: url(pixeloid-bold.ttf);
-}
-
-@font-face {
-	font-family: "font2";
-	src: url(LexendDeca-Regular.ttf);
-}
-
-@font-face {
-	font-family: "font3";
-	src: url(doa8bm.ttf);
-}
-
 * {
 	margin: 0px;
 	color: #000000;
@@ -27,12 +12,12 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: font1;
-	font-weight: 100;
+	font-weight: 700;
 }
 
 h1 sub, h2 sub, h3 sub, h4 sub, h5 sub, h6 sub {
-	font-family: font3;
-	font-weight: 100;
+	font-family: font2;
+	font-weight: 400;
 	line-height: 0.6em;
 }
 
@@ -77,13 +62,23 @@ a {
 	text-decoration-thickness: 2px;
 }
 
+p {
+	font-size: 1em;
+	font-weight: inherit;
+	display: inline;
+}
+
 body {
 	width: 100vw;
 	height: 100vh;
 	overflow-x: hidden;
 	overflow-y: auto;
-	font-family: font2;
+	font-family: font0;
 	font-size: 9px;
+}
+
+.-trns-:empty {
+	display: none;
 }
 
 #loader {
@@ -185,6 +180,7 @@ header #subheader .block-list button {
 	flex-direction: row;
 	align-items: center;
 	float: none;
+	cursor: pointer;
 }
 
 header #subheader .block-list button img {
@@ -272,18 +268,34 @@ footer, .screen {
 
 .title-wrap h4 {
 	position: absolute;
-	display: inline;
-	z-index: 1;
+	z-index: 10;
 	max-width: calc(100% - 64px);
 	/* text-shadow: 4px 4px 0px #ffffff, 0px 4px 0px #ffffff, 4px 0px 0px #ffffff, 0px -4px 0px #ffffff, 4px -4px 0px #ffffff; */
-	word-break: keep-all;
+	word-wrap: break-word;
 }
 
-.title-wrap h4 p {
+.ua-text {
 	font-size: 1em;
-	background: linear-gradient(0deg, #f5d617 50%, #151f78 50%);
+	background-image: linear-gradient(45deg, #151f78 50%, #f5d617 50%), linear-gradient(45deg, #151f78 50%, #f5d617 50%);
+	background-size: 1em 1em;
+	background-position: 0px 0px;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
+	animation: anim0 1s linear 0s infinite;
+}
+
+@keyframes anim0 {
+	0% {
+		background-position: 0px 0px;
+	}
+
+	50% {
+		background-position: 1em 0px;
+	}
+
+	100% {
+		background-position: 2em 0px;
+	}
 }
 
 .title-wrap img {
@@ -348,7 +360,7 @@ input[type="checkbox"] {
 .flex-table .row > * {
 	line-height: 1em;
 	font-size: 16px;
-	font-family: font2;
+	font-family: font0;
 }
 
 .flex-table .row > *:first-child {
