@@ -72,7 +72,6 @@ const toTranslate = locale => {
 
 		setTimeout(() => {
 			loader.classList.add("closed");
-			alert(document.body.clientHeight);
 		}, 500);
 	});
 };
@@ -104,3 +103,8 @@ const toCopy = (value) => {
 		popups[0].parentElement.classList.remove("visible");
 	}, 1000);
 };
+
+document.body.style.height = window.innerHeight + "px";
+// window.onload = () => {
+// 	alert(document.documentElement.getPropertyValue("--100vh"));
+// };
