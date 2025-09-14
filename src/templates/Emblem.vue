@@ -7,6 +7,8 @@ import SyncRender from "../lib/Render";
 const pi2 = Math.PI * 2;
 
 
+const props = defineProps([ "color" ]);
+
 let cnv, ctx;
 
 const canvasRef = useTemplateRef("canvas-ref");
@@ -33,7 +35,7 @@ const render = (points, i0) => {
 
 	ctx.clearRect(0, 0, cnv.width, cnv.height);
 
-	ctx.fillStyle = "#000";
+	ctx.fillStyle = props.color;
 
 	const gap = 0.1;
 
@@ -87,5 +89,7 @@ onMounted(() => {
 canvas {
 	/*background-color: black;*/
 	display: block;
+	width: fit-content;
+	height: fit-content;
 }
 </style>
