@@ -12,13 +12,13 @@ import Scale from "./templates/Scale.vue";
 			<Emblem color="#fff" />
 			<div>
 				<h3>React.js</h3>
-				<Scale steps="3" value="2" />
+				<!--<Scale steps=3 value=2 />
 				<h3>Vue</h3>
-				<Scale steps="3" value="2" />
+				<Scale steps=3 value=2 />
 				<h3>Tailwind CSS v3</h3>
-				<Scale steps="3" value="2" />
+				<Scale steps=3 value=2 />
 				<h3>Tailwind CSS v4</h3>
-				<Scale steps="3" value="1" />
+				<Scale steps=3 value=1 />-->
 			</div>
 			<div class="flex flex-row-reverse gap">
 				<div class="flex align-start flex-col gap-2 *:bg-gray-800 *:rounded-full *:py-1 *:px-3 *:w-fit *:cursor-pointer">
