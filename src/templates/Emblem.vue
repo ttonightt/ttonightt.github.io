@@ -29,14 +29,14 @@ const generate = ( width, height, plen ) => {
 
 		const [x, y] = scene.proj( coil.fx(t), coil.fy(t), coil.fz(t) );
 
-		points[i] = x;
-		points[i + 1] = y;
+		points[i] = x - 22;
+		points[i + 1] = y - 16;
 	}
 
 	return points;
 };
 
-const render = (points, i0) => {
+const render = (points, i0, gap, step) => {
 
 	ctx.clearRect(0, 0, cnv.width, cnv.height);
 
@@ -44,12 +44,12 @@ const render = (points, i0) => {
 
 	const len2 = points.length / 2;
 
-	const gap = 0.1;
+	let i = Math.floor( len2 * i0 );
+	const ie = len2 + Math.floor( len2 * (i0 - gap) );
 
-	let i = Math.floor( len2 * (gap + i0) );
-	const ie = len2 + Math.floor( len2 * i0 );
+	ctx.beginPath();
 
-	for (i; i < ie; i++) {
+	for (i; i <= ie; i += step) {
 
 		const mi = i % len2;
 
@@ -58,11 +58,11 @@ const render = (points, i0) => {
 
 		const mi2 = mi * 2;
 
-		ctx.beginPath();
-
+		ctx.moveTo(points[mi2], points[mi2 + 1]);
 		ctx.arc(points[mi2], points[mi2 + 1], r, 0, pi2);
-		ctx.fill();
 	}
+
+	ctx.fill();
 };
 
 onMounted(() => {
@@ -72,17 +72,29 @@ onMounted(() => {
 
 	const fps = 60;
 
+	let transition = false;
+
+	setTimeout(() => transition = true, 3000);
+
 	let t = 0;
-	const dt = 0.025 / fps;
+	let dt = 0.01;
+	let gap = 0.9;
 
 	const points = generate( cnv.width, cnv.height, 100 );
 
 	const animation = SyncRender( fps, () => {
 
-		render(points, t);
+		render(points, t, gap, 2);
 
 		t += dt;
 		t %= 1;
+
+		if (transition) {
+
+			if (gap > 0.1) gap -= 0.007;
+
+			if (dt > 0.0006) dt -= 0.0001;
+		};
 	});
 
 	animation();
