@@ -14,17 +14,39 @@
 	--color-gray-800: hsl(0, 0%, 20%);
 	--color-gray-900: hsl(0, 0%, 7%);
 	--color-gray-950: hsl(0, 0%, 0%);
+
+	--spacing-10w: 10vw;
+	--spacing-15w: 15vw;
+	--spacing-20w: 20vw;
+	--spacing-30w: 30vw;
+	--spacing-40w: 40vw;
+	--spacing-50w: 50vw;
+	--spacing-60w: 60vw;
+	--spacing-70w: 70vw;
+	--spacing-80w: 80vw;
+	--spacing-90w: 90vw;
+
+	--spacing-10h: 10vh;
+	--spacing-15h: 15vh;
+	--spacing-20h: 20vh;
+	--spacing-30h: 30vh;
+	--spacing-40h: 40vh;
+	--spacing-50h: 50vh;
+	--spacing-60h: 60vh;
+	--spacing-70h: 70vh;
+	--spacing-80h: 80vh;
+	--spacing-90h: 90vh;
 }
 
 @layer base {
 
-	h1 {
+	h1, .h1 {
 		font-family: var(--font-deco);
 		font-weight: 900;
 		font-size: 2rem;
 	}
 
-	h3 {
+	h3, .h3 {
 		font-family: var(--font-deco);
 		font-weight: 700;
 		font-size: 1.5rem;
