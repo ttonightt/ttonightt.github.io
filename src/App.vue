@@ -2,11 +2,21 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/vue";
 import Emblem from "./templates/Emblem.vue";
 import Scale from "./templates/Scale.vue";
+import OptionsMap from "./templates/OptionsMap.vue";
 import { ref } from "vue";
 
 const tabIndex = ref(0);
 
 const setTabIndex = index => tabIndex.value = index;
+
+const options = [
+	{ name: "React", weight: 1 },
+	{ name: "Preact", weight: 0 },
+	{ name: "Vue", weight: 1 },
+	{ name: "Svelte", weight: 0 },
+	{ name: "Vanilla", weight: 1 },
+	{ name: "Angular", weight: 0 }
+];
 
 </script>
 
@@ -77,13 +87,19 @@ const setTabIndex = index => tabIndex.value = index;
 						<h3>three.js</h3>
 						<Scale steps="3" value="1" class="w-36" />
 					</TabPanel>
-					<TabPanel>Projects</TabPanel>
+					<TabPanel>
+						<OptionsMap :options="options" />
+					</TabPanel>
+					<TabPanel>
+						<h1>Pet Projects</h1>
+					</TabPanel>
 				</TabPanels>
 				<div class="w-0.5 grad max-h-screen sticky top-0 grad basis-0.5 shrink-0"></div>
 				<TabList class="max-h-screen flex items-center">
 					<div class="flex flex-col sticky top-10h gap-2 *:bg-gray-800 *:rounded-full *:py-1 *:px-3 *:w-fit *:cursor-pointer">
 						<Tab>Me myself</Tab>
 						<Tab>What do I know</Tab>
+						<Tab>My own tech prefences</Tab>
 						<Tab>What have I done</Tab>
 					</div>
 				</TabList>
