@@ -7,7 +7,10 @@ import SyncRender from "../lib/Render";
 const pi2 = Math.PI * 2;
 
 
-const props = defineProps([ "color" ]);
+const props = defineProps([ "color", "width", "height", "class", "x0", "y0" ]);
+
+const dOx = parseInt( props.x0 || 0 );
+const dOy = parseInt( props.y0 || 0 );
 
 let cnv, ctx;
 
@@ -29,8 +32,8 @@ const generate = ( width, height, plen ) => {
 
 		const [x, y] = scene.proj( coil.fx(t), coil.fy(t), coil.fz(t) );
 
-		points[i] = x - 22;
-		points[i + 1] = y - 16;
+		points[i] = x - dOx;
+		points[i + 1] = y - dOy;
 	}
 
 	return points;
@@ -103,14 +106,5 @@ onMounted(() => {
 </script>
 
 <template>
-	<canvas ref="canvas-ref" width="200" height="200"></canvas>
+	<canvas ref="canvas-ref" :width="props.width" :height="props.height" :class="props.class"></canvas>
 </template>
-
-<style scoped>
-canvas {
-	/*background-color: black;*/
-	display: block;
-	width: fit-content;
-	height: fit-content;
-}
-</style>

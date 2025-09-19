@@ -57,7 +57,7 @@ export class Scene {
 	constructor (target, camera, f, width, height) {
 
 		this.extrinsic = lookAtM(target, camera);
-		this.intrinsic = intrinsicM(f, 200, 200);
+		this.intrinsic = intrinsicM(f, width, height);
 	}
 
 	proj (x0, y0, z0) {
